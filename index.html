@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Party-ify!</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="default.js"></script>
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="title-bar"></div>
+      <div class="app-contents">
+        <div title><h2>Party-ify v1.0.0</h2></div>
+        <img src="dj.png" width="256" />
+        <div id="ip">
+          <div>
+            <div class='inner'><h3>Please Choose An Audio Device</h3></div>
+          </div>
+        </div>
+        <div id="clients"><h3>Clients: 0</h3></div>
+      </div>
+
+      <div class="app-control">
+        <h3>Select audio device:</h3>
+        <form action="/adminpost" id="deviceform">
+          <select name="device" id="device"> </select>
+          <input value="Broadcast" type="submit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

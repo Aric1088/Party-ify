@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <title>Audio Stream</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="AudioPlayer.js"></script>
+    <script src="client.js"></script>
+    <script src="worker.js"></script>
+
+
+
+</head>
+
+<body>
+    <audio id="whomst" loop
+        src="https://raw.githubusercontent.com/anars/blank-audio/master/1-hour-of-silence.mp3"></audio>
+    <a onclick="play()" class="round-button">
+        <div class="fav"><i id='player' class="fa fa-play fa-2x" style="font-size:100px"></i></div>
+    </a>
+    <h2>Client Clock</h2>
+    <div id="clientClock"></div>
+    <h2>Resynchronized Client Clock</h2>
+    <div id="serverClock"></div>
+    <h2>Clock Offset</h2>
+    <div id="clockOffset"></div>
+    <h2>Latency</h2>
+    <div id="latency"></div>
+    <h2>Chunk Play Delay</h2>
+    <div id="chunk"></div>
+
+
+</body>
+
+</html>

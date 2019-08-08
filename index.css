@@ -1,0 +1,70 @@
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #191919;
+  -ms-overflow-style: scrollbar;
+  text-align: center;
+}
+h2, h3 {
+	text-align: center;
+	color: white;
+	font-family: proxima-nova, sans-serif
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.app-control {
+  margin: auto;
+  width: 50%;
+}
+form {
+    display: inline-block;
+}
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+.title-bar {
+  -webkit-app-region: drag;
+  width: 100%;
+  height: 23px;
+  background-color: #3C3C3C;
+}
+select, button, 
+input[type=button], input[type=submit], input[type=reset] {
+	height: 50px;
+  background-color: #3C3C3C;
+  border: none;
+  color: white;
+  padding: 16px 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: proxima-nova, sans-serif
+}
+button {
+  height: 10px;;
+}
+select{
+  margin-top: 10px;	
+}
+input[type=submit]{
+  padding: 32px, 32px
+}
+
+.copy{
+  width: '32px'
+}
