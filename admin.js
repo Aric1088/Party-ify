@@ -31,6 +31,7 @@ selectDevice = device => {
 getDevices = () => {
   $.get("http://localhost:3000/icecoffee/devices", {}, data => {
     fillDropdown(data);
+    return data;
   });
 };
 

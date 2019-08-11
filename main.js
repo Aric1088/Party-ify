@@ -1,4 +1,11 @@
-const kill = require("kill-port");
+/*
+ * Copyright (C) 2017 Jason Henderson
+ *
+ * This software may be modified and distributed under the terms
+ * of the MIT license.  See the LICENSE file for details.
+ */
+
+// The big boy
 const electron = require("electron");
 
 // Module to control application life.
@@ -32,7 +39,7 @@ function startExpress() {
   // Create the path of the express server to pass in with the spawn call
   var webServerDirectory = path.join(__dirname, "http", "bin", "www");
   log.info("starting node script: " + webServerDirectory);
-
+  console.log("yaggus brains");
   var nodePath = "/usr/local/bin/node";
   if (process.platform === "win32") {
     // Overwrite with the windows path...only testing on mac currently
@@ -55,7 +62,7 @@ function startExpress() {
 
   // Handle standard out data from the child process
   webServer.stdout.on("data", function(data) {
-    log.info("" + data);
+    log.info("data: " + data);
   });
 
   // Triggered when a child process uses process.send() to send messages.
@@ -64,19 +71,19 @@ function startExpress() {
   });
 
   // Handle closing of the child process
-  webServer.on("close", async function(code) {
+  webServer.on("close", function(code) {
     log.info("child process exited with code " + code);
     webServer = null;
 
     // Only restart if killed for a reason...
     if (!shuttingDown) {
       log.info("restarting...");
-      await kill(3000, "tcp");
       startExpress();
     }
   });
+
   // Handle the stream for the child process stderr
-  webServer.stderr.on("data", async function(data) {
+  webServer.stderr.on("data", function(data) {
     log.info("stderr: " + data);
   });
 
@@ -92,27 +99,14 @@ function startExpress() {
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    minheight: 650,
-    minwidth: 800,
     width: 800,
-    height: 650,
-    title: "Party-ify",
-    titleBarStyle: "hidden"
-    // frame: false
+    height: 600,
+    title: productName
   });
-
-  // mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false });
 
   log.info(mainWindow);
 
   // Create the URL to the locally running express server
-  // mainWindow.loadURL(
-  //   url.format({
-  //     pathname: path.join(__dirname, "index.html"),
-  //     protocol: "http:",
-  //     slashes: true
-  //   })
-  // );
   mainWindow.loadFile("index.html");
 
   // Emitted when the window is closed.
