@@ -1,5 +1,6 @@
 const electronInstaller = require("electron-winstaller");
 
+const hmm = () => {
 try {
   await electronInstaller.createWindowsInstaller({
     appDirectory: "/builds/Party-ify-win32-x64",
@@ -11,3 +12,5 @@ try {
 } catch (e) {
   console.log(`No dice: ${e.message}`);
 }
+}
+hmm()
