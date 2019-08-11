@@ -1,5 +1,5 @@
 setInterval(() => {
-  fetch("http://localhost:3000/clients")
+  fetch("http://localhost:80/clients")
     .then(response => response.json())
     .then(data => {
       $("#clients").empty();
