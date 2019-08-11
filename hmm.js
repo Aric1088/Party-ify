@@ -1,22 +1,13 @@
-var createMsi = require("msi-packager");
+const electronInstaller = require("electron-winstaller");
 
-var options = {
-  // required
-  source: "./builds/Party-ify-win32-x64/",
-  output: "~/Desktop",
-  name: "Party-ify",
-  upgradeCode: "10000",
-  version: "1.0.0",
-  manufacturer: "Aric Zhuang",
-  iconPath: "http/public/favicon.ico",
-  executable: "./builds/Party-ify-win32-x64/Party-ify.exe",
-  // optional
-  description: "Yeet urself",
-  arch: "x64",
-  localInstall: false
-};
-
-createMsi(options, function(err) {
-  if (err) throw err;
-  console.log("Outputed to " + options.output);
-});
+try {
+  await electronInstaller.createWindowsInstaller({
+    appDirectory: "/builds/Party-ify-win32-x64",
+    outputDirectory: "/",
+    authors: "Aric Zhuang",
+    exe: "Party-ifyInstall.exe"
+  });
+  console.log("It worked!");
+} catch (e) {
+  console.log(`No dice: ${e.message}`);
+}
