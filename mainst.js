@@ -31,7 +31,7 @@ var shuttingDown;
 function startExpress() {
   // Create the path of the express server to pass in with the spawn call
   var webServerDirectory = path.join(__dirname, "http", "bin", "www");
-  log.error("starting node script: " + webServerDirectory);
+  log.info("starting node script: " + webServerDirectory);
 
   var nodePath = "/usr/local/bin/node";
   if (process.platform === "win32") {
@@ -50,34 +50,34 @@ function startExpress() {
 
   // Were we successful?
   if (!webServer) {
-    log.error("couldn't start web server");
+    log.info("couldn't start web server");
     return;
   }
 
   // Handle standard out data from the child process
   webServer.stdout.on("data", function(data) {
-    log.error("" + data);
+    log.info("" + data);
   });
 
   // Triggered when a child process uses process.send() to send messages.
   webServer.on("message", function(message) {
-    log.error(message);
+    log.info(message);
   });
 
   // Handle closing of the child process
   webServer.on("close", function(code) {
-    log.error("child process exited with code " + code);
+    log.info("child process exited with code " + code);
     webServer = null;
 
     // Only restart if killed for a reason...
     if (!shuttingDown) {
-      log.error("restarting...");
+      log.info("restarting...");
       startExpress();
     }
   });
   // Handle the stream for the child process stderr
   webServer.stderr.on("data", async function(data) {
-    log.error("stderr: " + data);
+    log.info("stderr: " + data);
   });
 
   // Occurs when:
@@ -85,7 +85,7 @@ function startExpress() {
   // The process could not be killed, or
   // Sending a message to the child process failed.
   webServer.on("error", function(err) {
-    log.error("web server error: " + err);
+    log.info("web server error: " + err);
   });
 }
 
@@ -103,7 +103,7 @@ function createWindow() {
 
   // mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false });
 
-  log.error(mainWindow);
+  log.info(mainWindow);
 
   // Create the URL to the locally running express server
   // mainWindow.loadURL(
@@ -233,7 +233,7 @@ app.on("ready", function() {
 
 // Called before quitting...gives us an opportunity to shutdown the child process
 app.on("before-quit", function() {
-  log.error("gracefully shutting down...");
+  log.info("gracefully shutting down...");
 
   // Need this to make sure we don't kick things off again in the child process
   shuttingDown = true;
@@ -264,7 +264,7 @@ app.on("window-all-closed", function() {
 
 process.on("SIGINT", function() {
   //graceful shutdown
-  log.error("shutting down...");
+  log.info("shutting down...");
   process.exit();
 });
 
