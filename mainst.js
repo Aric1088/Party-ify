@@ -99,6 +99,7 @@ function createWindow() {
     titleBarStyle: "hidden"
     // frame: false
   });
+  mainWindow.removeMenu();
 
   // mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false });
 
