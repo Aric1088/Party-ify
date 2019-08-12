@@ -20,7 +20,8 @@
 		"electron": "^6.0.0",
 		"electron-rebuild": "^1.8.5",
 		"electron-winstaller": "^4.0.0",
-		"electron-packager": "^14.0.4"
+		"electron-packager": "^14.0.4",
+		"dev": "nodemon --watch . --exec \"electron . --debug\""
 	},
 	"dependencies": {
 		"electron-log": "^3.0.7",
