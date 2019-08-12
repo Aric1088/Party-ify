@@ -96,7 +96,7 @@ function createWindow() {
     width: 800,
     height: 650,
     title: "Party-ify",
-    titleBarStyle: "hidden"
+    titleBarStyle: "hidden",
     frame: false
   });
 
