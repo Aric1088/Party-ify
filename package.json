@@ -1,7 +1,7 @@
 {
 	"name": "Party-ify",
 	"productName": "Party-ify",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "Bring Music to the Masses",
 	"main": "mainst.js",
 	"scripts": {

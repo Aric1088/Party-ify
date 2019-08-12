@@ -35,7 +35,7 @@ function startExpress() {
 
   var nodePath = "/usr/local/bin/node";
   if (process.platform === "win32") {
-    nodePath = "node.exe";
+    nodePath = "node.exe"
     // Overwrite with the windows path...only testing on mac currently
   }
 

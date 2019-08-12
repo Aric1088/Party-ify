@@ -16,4 +16,4 @@ setInterval(() => {
             //100 ms allow the player to buffer ever so slightly more :)
             postMessage([calculated_offset, ceilServerTime, received, delay]);
         })
-}, 250);
+}, 500);
