@@ -9,7 +9,8 @@
 		"build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icon.icns --prune=true --out=builds",
 		"build-win": "electron-packager . --overwrite --platform=win32 --arch=x64 --prune=true --out=builds",
 		"postinstall": "electron-rebuild",
-		"electron-rebuild": "electron-rebuild"
+		"electron-rebuild": "electron-rebuild",
+		"dev": "nodemon --watch . --exec \"electron . --debug\""
 	},
 	"keywords": [
 		"node.js",
