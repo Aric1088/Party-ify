@@ -97,9 +97,8 @@ function createWindow() {
     height: 650,
     title: "Party-ify",
     titleBarStyle: "hidden"
-    // frame: false
+    frame: false
   });
-  mainWindow.removeMenu();
 
   // mainWindow = new BrowserWindow({ width: 800, height: 600, frame: false });
 
