@@ -1,4 +1,3 @@
-const kill = require("kill-port");
 const electron = require("electron");
 
 // Module to control application life.
@@ -35,7 +34,7 @@ function startExpress() {
 
   var nodePath = "/usr/local/bin/node";
   if (process.platform === "win32") {
-    nodePath = "node.exe"
+    nodePath = "node.exe";
     // Overwrite with the windows path...only testing on mac currently
   }
 

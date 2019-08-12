@@ -73,6 +73,7 @@ const setup_audio_stream = () => {
 };
 
 const close_stream = () => {
+  console.log("closed socket");
   socket.close();
 };
 

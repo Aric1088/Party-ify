@@ -166,11 +166,11 @@ io.on("connection", async socket => {
         });
       }
     }, numSeconds * 1000);
-    socket.on("disconnect", () => {
-      clients -= 1;
-      print("Clients: " + clients);
-    });
   }
+  socket.on("disconnect", () => {
+    clients -= 1;
+    print("Clients: " + clients);
+  });
 });
 
 module.exports = http;
