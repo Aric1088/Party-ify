@@ -156,21 +156,12 @@ io.on("connection", async socket => {
         buffer = bufferStream.read(192000 * numSeconds);
         time = new Date().getTime() + 2000;
 
-        // io.emit("chat message", {
-        //   type: 1,
-        //   payload: {
-        //     time: time,
-        //     chunky: buffer ? buffer.buffer : []
-        //   }
-        // });
-        Object.values(clients).forEach(client => {
-          client.emit("chat message", {
-            type: 1,
-            payload: {
-              time: time,
-              chunky: buffer.buffer
-            }
-          });
+        io.emit("chat message", {
+          type: 1,
+          payload: {
+            time: time,
+            chunky: buffer ? buffer.buffer : []
+          }
         });
       }
     }, numSeconds * 1000);
