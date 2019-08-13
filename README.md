@@ -21,7 +21,7 @@ The offset algorithm can be seen as below:
 We define the following variables:
 
 T1: Origin Timestamp: The timestamp of the client upon departure of the client's request\
-T2: Receive Timestamp: The timestamp of the server upon receiving the clients's request\
+T2: Receive Timestamp: The timestamp of the server upon receiving the client's request\
 T3: Transmit Timestamp: The timestamp of the server upon departure of the server's reply\
 T4: Destination Timestamp: The timestamp of the client upon receiving the server's reply
 
