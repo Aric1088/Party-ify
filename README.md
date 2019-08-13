@@ -44,7 +44,7 @@ Client A receives a packet 2 seconds after server transmission.\
 Client B receives a packet 1 second after server transmission.
 
 
-If we specifiy a global buffer time, or rather, assuming 0 latency, a client should wait x number of seconds before playing the data packet they have received, than we can apply the following synchronizations.
+If we specify a global buffer time, or rather, assuming 0 latency, a client should wait x number of seconds before playing the data packet they have received, than we can apply the following synchronizations.
 
 Given that client A has a latency of 2 seconds and client B has a latency of 1 second,\ 
 client A must readjust it's wait time to be x - 2 and client B must readjust it's wait time to be x - 1.
