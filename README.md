@@ -6,6 +6,57 @@ Wireless multi-speaker solution for parties, events, and celebratory occasions
 
 ![Image description](https://i.ibb.co/WDWcr8t/Screen-Shot-2019-08-08-at-2-42-35-AM.png)
 
+# How Audio Synchronization Works
+
+### Clock Synchronization
+
+All devices connected to the server must refer to the server time as a source of truth in order to perform timestamp dependent operations. 
+
+In this specific situation, the server acts as ntp server, where clients continually ping the server to determine the correct offset in which to synchronize their clocks too.
+
+The offset algorithm can be seen as below:
+offset = [(T2 - T1) + (T3 - T4)] / 2,
+
+with the variables defined as the following:
+T1: Origin Timestamp: The timestamp of the client upon departure of the client's request
+T2: Receive Timestamp: The timestamp of the server upon receiving the clients's request
+T3: Transmit Timestamp: The timestamp of the server upon departure of the server's reply
+T4: Destination Timestamp: The timestamp of the client upon receiving the server's reply
+
+We can then add this offset to the client time to obtain a theoretical synchronized time.
+
+### Latency Synchronization
+
+Because network packets are received by clients at different times due to being on different networks or because of network traffic, latency must be accounted for to correctly synchronize audio playback. 
+
+To calculate the latency, we apply the below calculation with the previously defined variables:
+
+delay = (T4 - T1) - (T3 - T2).
+
+If one client receives a packet before another, it must wait a certain amount of time such that it's playback matches with the client which receives the packet at a later time. To put our latency calculation to use, let us imagine the following senario:
+
+Client A receives a packet 2 seconds after server transmission.
+Client B receives a packet 1 second after server transmission.
+
+If we specifiy a global buffer time, or rather, assuming 0 latency, a client should wait x number of seconds before playing the data packet they have received, than we can apply the following synchronizations.
+
+Given that client A has a latency of 2 seconds and client B has a latency of 1 second, 
+client A must readjust it's wait time to be x - 2 and client B must readjust it's wait time to be x - 1.
+
+A concrete example would help illustrate why this makes sense.
+Client A receives a packet at time 2.
+Client B receives a packet at time 1.
+Assuming global buffer time is 3 seconds, with the aforementioned calculation,
+CLient A will wait 3 - 2 seconds, starting playback at time 2 + 1 = 3.
+Client B will wait 3 - 1 seconds, starting playback at time 1 + 2 = 3.
+
+As we can see, the clients both start playback at the sametime. 
+The limiting factor to this synchronization working in theory is the global buffer time.
+As long as the max latency among all the clients remain within global buffer time, then
+the amount each client has to wait will always be greater than 0, guaranteeing synchronized playback.
+Conversely, if a client has a greater latency than the global buffer time, and we cannot do the reverse of delaying(as the latency offset would now be negative), the algorithm would not work in this case.
+
+
 ### Prerequisites
 
 What things you need to install the software and how to install them
