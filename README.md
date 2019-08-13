@@ -1,4 +1,4 @@
-# Party-ify : Live Music Streaming Server
+# Party-ify : Live Wireless Distributed Music Streaming Solution
 Wireless distributed multi-speaker solution for parties, events, and celebratory occasions
 
 - Supports Synchronized Simultaneous Playback Across Multiple Clients
