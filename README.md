@@ -56,7 +56,7 @@ Client B receives a packet at time 1.
 
 Assuming global buffer time is 3 seconds, with the aforementioned calculation:
 
-CLient A will wait 3 - 2 seconds, starting playback at time 2 + 1 = 3.\
+Client A will wait 3 - 2 seconds, starting playback at time 2 + 1 = 3.\
 Client B will wait 3 - 1 seconds, starting playback at time 1 + 2 = 3.
 
 As we can see, the clients both start playback at the sametime.
