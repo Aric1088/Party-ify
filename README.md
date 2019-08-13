@@ -83,8 +83,8 @@ A step by step series of examples that tell you how to get a development env run
 3. In the case that any dependencies are missing, run "npm install"
 
 4. In order for the server to stream audio, it requires an input audio source to read from. This could be a microphone device, or a virtual sound driver that captures system audio.
-5. For Windows, I recommend Virtual Cable Audio; it works really well and is easy to setup: https://www.vb-audio.com/Cable/
-For Mac, soundflower is a good solution: https://rogueamoeba.com/freebies/soundflower/
+5. For Windows, I recommend Virtual Cable Audio; it works really well and is easy to setup: https://www.vb-audio.com/Cable/ An alternative would be to use Window's builtin Audio Recoding API: stereo-mix
+6. For Mac, soundflower is a good solution: https://rogueamoeba.com/freebies/soundflower/
 On Linux, using either ALSA or PulseAudio, you can create a virtual sound sink.
 
 
