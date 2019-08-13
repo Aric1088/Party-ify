@@ -40,8 +40,8 @@ To calculate the latency, we apply the below calculation with the previously def
 If one client receives a packet before another, it must wait a certain amount of time such that it's playback matches with the client which receives the packet at a later time. To put our latency calculation to use, let us imagine the following senario:
 
 
-Client A receives a packet 2 seconds after server transmission.\
-Client B receives a packet 1 second after server transmission.
+- Client A receives a packet 2 seconds after server transmission.
+- Client B receives a packet 1 second after server transmission.
 
 
 If we specify a global buffer time, or rather, assuming 0 latency, a client should wait x number of seconds before playing the data packet they have received, than we can apply the following synchronizations.
@@ -51,13 +51,13 @@ client A must readjust it's wait time to be x - 2 and client B must readjust it'
 
 A concrete example would help illustrate why this makes sense.
 
-Client A receives a packet at time 2.\
-Client B receives a packet at time 1.
+- Client A receives a packet at time 2.
+- Client B receives a packet at time 1.
 
 Assuming global buffer time is 3 seconds, with the aforementioned calculation:
 
-Client A will wait 3 - 2 seconds, starting playback at time 2 + 1 = 3.\
-Client B will wait 3 - 1 seconds, starting playback at time 1 + 2 = 3.
+- Client A will wait 3 - 2 seconds, starting playback at time 2 + 1 = 3.
+- Client B will wait 3 - 1 seconds, starting playback at time 1 + 2 = 3.
 
 As we can see, the clients both start playback at the sametime.
 
