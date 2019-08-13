@@ -14,7 +14,7 @@ All devices connected to the server must refer to the server time as a source of
 
 In this specific situation, the server acts as ntp server, where clients continually ping the server to determine the correct offset in which to synchronize their clocks too.
 
-The offset algorithm can be seen as below:
+The offset algorithm can be seen below:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\Delta&space;=&space;[(T2&space;-&space;T1)&space;&plus;&space;(T3&space;-&space;T4)]&space;/&space;2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Delta&space;=&space;[(T2&space;-&space;T1)&space;&plus;&space;(T3&space;-&space;T4)]&space;/&space;2" title="\Delta = [(T2 - T1) + (T3 - T4)] / 2" /></a>
 
